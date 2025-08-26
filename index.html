@@ -11,14 +11,14 @@
 </head>
 <body class="bg-gray-900 text-gray-100">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-effect" role="navigation" aria-label="Main navigation">
+    <nav class="fixed w-full z-50 glass-effect animate__animated animate__fadeInDown" role="navigation" aria-label="Main navigation">
         <div class="max-w-6xl mx-auto px-4 py-4 font-semibold">
             <div class="flex justify-between items-center">
-                <span class="brand">AL</span>
+                <span class="brand animate__animated animate__fadeInLeft">AL</span>
                 <div class="space-x-8">
-                    <a href="#about" class="apple-transition hover:text-blue-400 transition-colors focus:outline-none">About</a>
-                    <a href="#projects" class="apple-transition hover:text-blue-400 transition-colors focus:outline-none">Projects</a>
-                    <a href="#contact" class="apple-transition hover:text-blue-400 transition-colors focus:outline-none">Contact</a>
+                    <a href="#about" class="apple-transition hover:text-blue-400 transition-colors focus:outline-none animate__animated animate__fadeInDown" style="animation-delay:0.2s;">About</a>
+                    <a href="#projects" class="apple-transition hover:text-blue-400 transition-colors focus:outline-none animate__animated animate__fadeInDown" style="animation-delay:0.35s;">Projects</a>
+                    <a href="#contact" class="apple-transition hover:text-blue-400 transition-colors focus:outline-none animate__animated animate__fadeInDown" style="animation-delay:0.5s;">Contact</a>
                 </div>
             </div>
         </div>
@@ -26,33 +26,33 @@
 
     <!-- Hero Section -->
     <header class="min-h-screen flex items-center justify-center animated-bg">
-        <div class="text-center px-4 animate__animated animate__fadeIn">
-            <h1 class="hero-title headline text-6xl font-bold mb-3 floating">AXEL LEE</h1>
-            <p class="hero-subtitle text-2xl font-semibold mb-4 opacity-90">Data Scientist | Graduate @ 42 Singapore | Software Engineer</p>
+        <div class="text-center px-4 animate__animated animate__fadeInUp">
+            <h1 class="hero-title headline text-6xl font-bold mb-3 floating animate__animated animate__zoomIn" style="animation-delay:0.2s;">AXEL LEE</h1>
+            <p class="hero-subtitle text-2xl font-semibold mb-4 opacity-90 animate__animated animate__fadeInUp" style="animation-delay:0.5s;">
+                Data Scientist | Graduate @ 42 Singapore | Software Engineer
+            </p>
         </div>
     </header>
 
     <!-- About Section -->
     <section id="about" class="py-32 px-4 bg-gray-800">
-        <div class="max-w-4xl mx-auto scroll-reveal">
-            <h2 class="text-4xl font-bold text-center mb-12">About Me</h2>
-            <div class="glass-effect p-8 rounded-2xl">
+        <div class="max-w-4xl mx-auto scroll-reveal animate__animated animate__fadeInLeft">
+            <h2 class="text-4xl font-bold text-center mb-12 animate__animated animate__fadeInDown" style="animation-delay:0.15s;">About Me</h2>
+            <div class="glass-effect p-8 rounded-2xl animate__animated animate__fadeInUp" style="animation-delay:0.3s;">
                 <p class="text-gray-300 text-lg leading-relaxed">
                     Former architectural designer turned software engineer and data scientist. I was one of the first 18 graduates from 42 Singapore’s pioneer batch of 190 — a self-directed, project-based curriculum that sharpened my problem-solving, resilience, and peer-learning mindset.
                     <br>
                     <br>
                     I build data-informed machine learning models that solves real problems and create intelligent, impactful solutions
                 </p>
-
                 <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="https://github.com/axellee1994" target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold bg-gray-900/80 text-white border border-white/6 apple-transition hover:opacity-90 focus:outline-none"
+                       class="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold bg-gray-900/80 text-white border border-white/6 apple-transition hover:opacity-90 focus:outline-none animate__animated animate__fadeInLeft" style="animation-delay:0.45s;"
                        aria-label="View my GitHub">
                         View on GitHub
                     </a>
-
                     <a href="https://medium.com/@axellee1994" target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold bg-white text-black apple-transition hover:opacity-90 focus:outline-none"
+                       class="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold bg-white text-black apple-transition hover:opacity-90 focus:outline-none animate__animated animate__fadeInRight" style="animation-delay:0.6s;"
                        aria-label="Read my Medium articles">
                         Read on Medium
                     </a>
@@ -63,11 +63,11 @@
 
     <!-- Projects Section -->
     <section id="projects" class="py-32 px-4 bg-gray-900">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16">My Projects</h2>
+        <div class="max-w-6xl mx-auto scroll-reveal animate__animated animate__fadeInUp">
+            <h2 class="text-4xl font-bold text-center mb-16 animate__animated animate__fadeInDown" style="animation-delay:0.15s;">My Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project Cards -->
-                <a href="frontend/pages/project1.html" class="project-card glass-effect rounded-xl overflow-hidden scroll-reveal block focus:outline-none" aria-label="Open Project 1">
+                <a href="frontend/pages/project1.html" class="project-card glass-effect rounded-xl overflow-hidden scroll-reveal block focus:outline-none animate__animated animate__zoomIn" style="animation-delay:0.3s;" aria-label="Open Project 1">
                     <img loading="lazy" src="frontend/assets/project_cover/ft_transcendence.png" alt="Project 1" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">Project Name</h3>
@@ -120,13 +120,15 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-32 px-4 bg-gray-800">
-        <div class="max-w-4xl mx-auto text-center scroll-reveal">
-            <h2 class="text-4xl font-bold mb-12">Get In Touch</h2>
-            <div class="glass-effect p-8 rounded-2xl">
+        <div class="max-w-4xl mx-auto text-center scroll-reveal animate__animated animate__fadeInUp">
+            <h2 class="text-4xl font-bold mb-12 animate__animated animate__fadeInDown" style="animation-delay:0.15s;">Get In Touch</h2>
+            <div class="glass-effect p-8 rounded-2xl animate__animated animate__fadeInUp" style="animation-delay:0.3s;">
                 <p class="text-gray-300 mb-8">
                     Interested in working together? Let's create something amazing!
                 </p>
-                <a href="mailto:axellee1994@gmail.com" class="inline-block apple-transition bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity focus:outline-none">
+                <a href="mailto:axellee1994@gmail.com"
+                   class="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold bg-gray-900/80 text-white border border-white/6 apple-transition hover:opacity-90 focus:outline-none animate__animated animate__fadeInUp"
+                   style="animation-delay:0.5s;">
                     Contact Me
                 </a>
             </div>
@@ -134,7 +136,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 bg-gray-900 text-gray-400 text-center">
+    <footer class="py-8 bg-gray-900 text-gray-400 text-center animate__animated animate__fadeInUp" style="animation-delay:0.7s;">
         <p>&copy; 2025 Axel Lee. All rights reserved.</p>
     </footer>
 
