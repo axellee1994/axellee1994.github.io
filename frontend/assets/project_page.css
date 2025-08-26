@@ -1,3 +1,61 @@
+@import url("./main.css");
+
+/* Project page specific overrides (builds on main.css variables) */
+
+/* Use footer color as the hero background on project pages */
+.project-page-body .animated-bg {
+    background-image: none !important;
+    background-color: rgb(var(--footer)) !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Reduce overlay intensity since background is flat color */
+.project-page-body .animated-bg::before{
+    background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.08));
+}
+
+/* Make the project content area wider and more prominent */
+.project-page-body main .max-w-3xl {
+    max-width: 1100px; /* larger container for detailed project pages */
+}
+
+.project-page-body main .glass-effect {
+    padding: 2rem; /* slightly larger padding for content blocks */
+}
+
+/* Make project screenshots larger on project page */
+.project-page-body img.object-cover {
+    height: 420px;
+}
+
+/* Reduce the size of the contact/footer area on the project page */
+.project-page-body footer {
+    padding: 0.75rem 0;
+    font-size: 0.875rem;
+}
+
+/* If there is a 'Get in touch' block on this page, keep it compact */
+.project-page-body .get-in-touch, .project-page-body #contact {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+/* Slight visual separation for long project pages */
+.project-page-body .glass-effect + .glass-effect { margin-top: 1.25rem; }
+
+/* Ensure badges stay readable with the darker footer background */
+.project-page-body .project-card .p-6 > .flex > span,
+.project-page-body .p-6 > .flex > span {
+    background-clip: padding-box;
+}
+
+/* Mobile tweaks: reduce image height and spacing */
+@media (max-width: 640px) {
+    .project-page-body img.object-cover { height: 240px; }
+    .project-page-body main .max-w-3xl { padding-left: 1rem; padding-right: 1rem; }
+}
         :root{
             --bg: 15 15 20;
             --glass-bg: 255 255 255;
