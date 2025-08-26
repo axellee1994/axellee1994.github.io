@@ -32,65 +32,104 @@
                     autoplay muted loop playsinline preload="metadata" poster="../assets/project_images/single_player-poster.jpg">
                     <source src="../assets/project_images/ft_transcendence/single_player.webm" type="video/webm">
                 </video>
-                <h1 class="headline text-4xl font-bold mb-4">FT_TRANSCENDENCE</h1>
+                <h1 class="headline text-4xl font-bold mb-4">Heart Disease Classification Model</h1>
                 <h2 class="text-2xl font-semibold mb-2">Overview</h2>
-                <p class="mb-4">42 Transcendence is a full-stack web application featuring a multiplayer Pong game, user authentication, real-time chat, and social features.</p>
+                <p class="mb-4">A compact, end-to-end machine learning workflow for predicting heart disease from clinical variables using scikit-learn.</p>
+                
+                <h3 class="font-semibold mb-1">Goal</h3>
+                <div class="mb-2">
+                    <ul class="list-inside list-disc space-y-2 text-gray-300">
+                        <li><strong>Problem Definion:</strong> Given clinical parameters about a patient, can we predict whether or not they have heart disease?.</li>
+                        <li><strong>Data:</strong> Dataset came from the UCI Machine Learning Repository</li>
+                        <li><strong>Evaluation:</strong> If able to reach 95% accuracy at predicitng whether or not a patient has heart disease during the proof of concept, continue to pursue the project</li>
+                        <li><strong>Features:</strong> 14 Features in the dataset, compiled from public sources and domain notes</li>
+                    </ul>
+                </div>
+                <br>
                 <h3 class="font-semibold mb-1">Technologies Used</h3>
 
                 <!-- aligned tech rows: fixed label width + flexible badges column -->
                 <div class="mb-2">
                     <div class="mb-2 flex items-start gap-4">
-                        <div class="font-medium w-28 flex-shrink-0">Backend:</div>
-                        <div class="flex flex-wrap gap-">
-                            <span class="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-sm">Fastify</span>
-                            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">TypeScript</span>
-                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Node.js</span>
-                            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">SQLite</span>
+                        <div class="font-medium w-28 flex-shrink-0">Language:</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Python</span>
                         </div>
                     </div>
 
                     <div class="mb-2 flex items-start gap-4">
-                        <div class="font-medium w-28 flex-shrink-0">Frontend:</div>
+                        <div class="font-medium w-28 flex-shrink-0">ML & Data:</div>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">TypeScript</span>
-                            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Webpack</span>
-                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm">Tailwind CSS</span>
-                            <span class="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-sm">Babylon.js</span>
+                            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">scikit-learn</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">pandas</span>
+                            <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">NumPy</span>
+                            <span class="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm">joblib</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-2 flex items-start gap-4">
+                        <div class="font-medium w-28 flex-shrink-0">Modeling:</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-rose-500/20 text-rose-300 rounded-full text-sm">LogisticRegression</span>
+                            <span class="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-sm">KNeighborsClassifier</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">RandomForestClassifier</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-2 flex items-start gap-4">
+                        <div class="font-medium w-28 flex-shrink-0">Search & CV:</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">RandomizedSearchCV</span>
+                            <span class="px-3 py-1 bg-lime-500/20 text-lime-300 rounded-full text-sm">GridSearchCV</span>
+                            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">cross_val_score</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-2 flex items-start gap-4">
+                        <div class="font-medium w-28 flex-shrink-0">Viz & EDA:</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm">seaborn</span>
+                            <span class="px-3 py-1 bg-blue-400/20 text-blue-300 rounded-full text-sm">matplotlib</span>
+                            <span class="px-3 py-1 bg-gray-700/20 text-gray-200 rounded-full text-sm">pandas crosstab</span>
                         </div>
                     </div>
 
                     <div class="flex items-start gap-4">
-                        <div class="font-medium w-28 flex-shrink-0">DevOps:</div>
+                        <div class="font-medium w-28 flex-shrink-0">Tools:</div>
                         <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-600/20 text-gray-200 rounded-full text-sm">Jupyter</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">SciPy</span>
                             <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Docker</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="glass-effect rounded-2xl p-8 scroll-reveal">
-                <h2 class="text-2xl font-semibold mb-4">Features</h2>
+                <h2 class="text-2xl font-semibold mb-4">Result Summary</h2>
                 <ul class="list-inside list-disc space-y-2 text-gray-300">
-                    <li><strong>Real-time Multiplayer Pong:</strong> Challenge friends or other users to a classic game of Pong.</li>
-                    <li><strong>User Authentication:</strong> Secure user registration and login using JWT and Google OAuth2.</li>
-                    <li><strong>Social Features:</strong> Add friends, view user profiles, and see their match history.</li>
-                    <li><strong>Real-time Chat:</strong> Communicate with other players in real-time.</li>
-                    <li><strong>Tournament Mode:</strong> Compete in tournaments to become the ultimate Pong champion.</li>
+                    <li><strong>Best Model:</strong> Tuned Random Forest Classifier</li>
+                    <li><strong>Test Accuracy:</strong> 0.74–0.78; ROC‑AUC ≈ 0.861</li>
+                    <li><strong>Recall Score:</strong> High recall on positives (~94%) with more false positives; 95% accuracy target not met</li>
+                    <li><strong>Primary Signal: </strong> Derive from stress‑test/chest‑pain features (cp, thal, thalach, oldpeak, slope, exang, ca)</li>
                 </ul>
             </div>
 
             <div class="glass-effect rounded-2xl p-8 scroll-reveal">
                 <h2 class="text-2xl font-semibold mb-4">What I learnt</h2>
                 <ul class="list-inside list-disc space-y-2 text-gray-300">
-                    <li><strong>Frontend Architectures:</strong> Learning how to build the frontend with MCV structure to be connected to the backend.</li>
-                    <li><strong>Stress Testing:</strong> Different types of testing to find bugs and resolve it during UAT, UAP and SLA.</li>
-                    <li><strong>Developed user management and authentication system:</strong> Helped to implement JWT tokens for authentication in order to retrieve data for social features and detailed user profiles with performance tacking.</li>
-                    <li><strong>Building interactice dashboards:</strong> Used data visualization (charts and graphs) to provide clear, actionable insights into the statistics.</li>
-                    <li><strong>Implementation of AI-drive opponent:</strong> How to replicate human behavior by simulating keyboard inputs, implementing decision-making logic and strategies.</li>
+                    <li><strong>Exploratory Data Analysis:</strong> Cleaning model by replacing null values or dropping duplicates before using crosstabs and heatmaps</li>
+                    <li><strong>Stratified Data Splitting:</strong> How to determine the split percentages and to use train_test_split</li>
+                    <li><strong>Comparison among models:</strong> Learning how to tune with different models before doing a final tune with GridSearchCV</li>
+                    <li><strong>Pipeline:</strong> Implementing a pipeline to repeat scaling and preprocessing</li>
+                    <li><strong>Evaluation beyong accuracy:</strong> Cross validation with multiple scorers, ROC curve, ROC-AUC and Confusion Matrix</li>
+                    <li><strong>Feature Importance:</strong> Using .feature_importances_ to see which features affects the tuning most.</li>
+                    <li><strong>Model Export:</strong> Importing joblib and export a tuned model for future use</li>
+
                 </ul>
             </div>
 
             <div class="mt-6 flex justify-center scroll-reveal">
-                <a href="https://github.com/axellee1994/ft_transcendence" target="_blank" rel="noopener noreferrer"
+                <a href="https://github.com/axellee1994/Heart_Disease_Classification" target="_blank" rel="noopener noreferrer"
                    class="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold bg-gray-900/80 text-white border border-white/6 apple-transition hover:opacity-90 focus:outline-none animate__animated animate__fadeInUp"
                    style="animation-delay:0.4s;"
                    aria-label="View full project code on GitHub">
