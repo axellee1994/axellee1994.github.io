@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Project 2 — Portfolio</title>
+    <title>Project 1 — Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/project_page.css">
@@ -28,21 +28,152 @@
     <main class="min-h-screen flex items-center justify-center animated-bg pt-32 pb-20 px-4">
         <div class="max-w-3xl w-full">
             <div class="glass-effect rounded-2xl p-8 mb-10 scroll-reveal">
-                <img src="/api/placeholder/800/400" alt="Project screenshot" class="w-full h-64 object-cover rounded-xl mb-8" />
-                <h1 class="headline text-4xl font-bold mb-4">Project 2</h1>
+                <video class="w-full h-120 object-cover rounded-xl mb-8"
+                    autoplay muted loop playsinline preload="metadata" poster="../assets/project_images/single_player-poster.jpg">
+                    <source src="../assets/project_images/ft_transcendence/single_player.webm" type="video/webm">
+                </video>
+                <h1 class="headline text-4xl font-bold mb-4">FT_TRANSCENDENCE</h1>
                 <h2 class="text-2xl font-semibold mb-2">Overview</h2>
-                <p class="mb-4">Short synopsis of Project 2. Explain what it does and the problem it solves.</p>
-                <h3 class="font-semibold mb-1">Tech</h3>
-                <div class="flex gap-2 mb-2">
-                    <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Vue.js</span>
-                    <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Firebase</span>
-                    <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Cloud Functions</span>
+                <p class="mb-4">42 Transcendence is a full-stack web application featuring a multiplayer Pong game, user authentication, real-time chat, and social features.</p>
+                <h3 class="font-semibold mb-1">Technologies Used</h3>
+
+                <!-- aligned tech rows: fixed label width + flexible badges column -->
+                <div class="mb-2">
+                    <div class="mb-2 flex items-start gap-4">
+                        <div class="font-medium w-28 flex-shrink-0">Backend:</div>
+                        <div class="flex flex-wrap gap-">
+                            <span class="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-sm">Fastify</span>
+                            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">TypeScript</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Node.js</span>
+                            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">SQLite</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-2 flex items-start gap-4">
+                        <div class="font-medium w-28 flex-shrink-0">Frontend:</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">TypeScript</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Webpack</span>
+                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-sm">Babylon.js</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="font-medium w-28 flex-shrink-0">DevOps:</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Docker</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="glass-effect rounded-2xl p-8 scroll-reveal">
-                <h2 class="text-2xl font-semibold mb-2">More details</h2>
-                <p class="mb-4">Describe features, challenges and what you learned. Link to live demo if available.</p>
+                <h2 class="text-2xl font-semibold mb-4">Features</h2>
+                <ul class="list-inside list-disc space-y-2 text-gray-300">
+                    <li><strong>Real-time Multiplayer Pong:</strong> Challenge friends or other users to a classic game of Pong.</li>
+                    <li><strong>User Authentication:</strong> Secure user registration and login using JWT and Google OAuth2.</li>
+                    <li><strong>Social Features:</strong> Add friends, view user profiles, and see their match history.</li>
+                    <li><strong>Real-time Chat:</strong> Communicate with other players in real-time.</li>
+                    <li><strong>Tournament Mode:</strong> Compete in tournaments to become the ultimate Pong champion.</li>
+                </ul>
             </div>
+
+            <div class="glass-effect rounded-2xl p-8 scroll-reveal">
+                <h2 class="text-2xl font-semibold mb-4">What I learnt</h2>
+                <ul class="list-inside list-disc space-y-2 text-gray-300">
+                    <li><strong>Frontend Architectures:</strong> Learning how to build the frontend with MCV structure to be connected to the backend.</li>
+                    <li><strong>Stress Testing:</strong> Different types of testing to find bugs and resolve it during UAT, UAP and SLA.</li>
+                    <li><strong>Developed user management and authentication system:</strong> Helped to implement JWT tokens for authentication in order to retrieve data for social features and detailed user profiles with performance tacking.</li>
+                    <li><strong>Building interactice dashboards:</strong> Used data visualization (charts and graphs) to provide clear, actionable insights into the statistics.</li>
+                    <li><strong>Implementation of AI-drive opponent:</strong> How to replicate human behavior by simulating keyboard inputs, implementing decision-making logic and strategies.</li>
+                </ul>
+            </div>
+
+            <div class="mt-6 flex justify-center scroll-reveal">
+                <a href="https://github.com/axellee1994/ft_transcendence" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold bg-gray-900/80 text-white border border-white/6 apple-transition hover:opacity-90 focus:outline-none animate__animated animate__fadeInUp"
+                   style="animation-delay:0.4s;"
+                   aria-label="View full project code on GitHub">
+                    View full code
+                </a>
+            </div>
+
+            <!-- Gallery -->
+            <div class="glass-effect rounded-2xl p-8 mt-6 scroll-reveal">
+                <h2 class="text-2xl font-semibold mb-4">Gallery</h2>
+                <div class="relative">
+                    <div id="gif-carousel" class="overflow-hidden rounded-lg bg-gray-800">
+                        <div class="carousel-track relative w-full h-64 md:h-80 lg:h-96">
+                            <video class="carousel-item absolute inset-0 w-full h-full object-cover" data-index="0" autoplay muted loop playsinline preload="metadata" poster="../assets/project_images/ft_transcendence/multiplayer-poster.webp">
+                                <source src="../assets/project_images/ft_transcendence/multiplayer.webm" type="video/webm">
+                            </video>
+
+                            <video class="carousel-item absolute inset-0 w-full h-full object-cover hidden" data-index="1" autoplay muted loop playsinline preload="metadata" poster="../assets/project_images/ft_transcendence/profile-poster.webp">
+                                <source src="../assets/project_images/ft_transcendence/profile_detailed_stats.webm" type="video/webm">
+                            </video>
+
+                            <video class="carousel-item absolute inset-0 w-full h-full object-cover hidden" data-index="2" autoplay muted loop playsinline preload="metadata" poster="../assets/project_images/ft_transcendence/other-poster.webp">
+                                <source src="../assets/project_images/ft_transcendence/friends.webm" type="video/webm">
+                            </video>
+                        </div>
+                    </div>
+
+                    <button id="carousel-prev" type="button" aria-label="Previous" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        ‹
+                    </button>
+                    <button id="carousel-next" type="button" aria-label="Next" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        ›
+                    </button>
+                </div>
+
+                <div id="carousel-dots" class="flex justify-center mt-3 space-x-2">
+                    <button class="dot w-3 h-3 rounded-full bg-blue-300" data-index="0" aria-label="Show image 1"></button>
+                    <button class="dot w-3 h-3 rounded-full bg-gray-600" data-index="1" aria-label="Show image 2"></button>
+                    <button class="dot w-3 h-3 rounded-full bg-gray-600" data-index="2" aria-label="Show image 3"></button>
+                </div>
+            </div>
+
+            <script>
+                (function(){
+                    const items = Array.from(document.querySelectorAll('.carousel-item'));
+                    const dots = Array.from(document.querySelectorAll('#carousel-dots .dot'));
+                    const prev = document.getElementById('carousel-prev');
+                    const next = document.getElementById('carousel-next');
+                    let idx = 0;
+
+                    function show(i){
+                        idx = (i + items.length) % items.length;
+                        items.forEach((el, j) => {
+                            const hidden = j !== idx;
+                            el.classList.toggle('hidden', hidden);
+                            // pause hidden videos and play visible one
+                            if (el.tagName.toLowerCase() === 'video') {
+                                try {
+                                    if (hidden) { el.pause(); el.currentTime = 0; }
+                                    else { el.play().catch(()=>{}); }
+                                } catch(e){}
+                            }
+                        });
+                        dots.forEach((d, j) => {
+                            d.classList.toggle('bg-blue-300', j === idx);
+                            d.classList.toggle('bg-gray-600', j !== idx);
+                        });
+                    }
+
+                    prev.addEventListener('click', () => show(idx - 1));
+                    next.addEventListener('click', () => show(idx + 1));
+                    dots.forEach(d => d.addEventListener('click', () => show(Number(d.dataset.index))));
+
+                    document.addEventListener('keydown', (e) => {
+                        if (e.key === 'ArrowLeft') show(idx - 1);
+                        if (e.key === 'ArrowRight') show(idx + 1);
+                    });
+
+                    // initialize: ensure only the first plays
+                    show(0);
+                })();
+            </script>
+
             <p class="mt-8 text-sm text-gray-400">&larr; <a href="/index.html" class="text-blue-300">Back to portfolio</a></p>
         </div>
     </main>
