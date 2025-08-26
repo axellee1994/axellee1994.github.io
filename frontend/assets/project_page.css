@@ -160,8 +160,40 @@
 
         a:active, button:active { transform: scale(0.995); }
 
-        :focus {
-            outline: 3px solid rgba(var(--accent), 0.12);
-            outline-offset: 3px;
-            border-radius: 8px;
+        /* Remove visible browser outline for non-keyboard focus within project pages,
+           but preserve an accessible focus-visible ring for keyboard users. */
+        .project-page-body :focus {
+            outline: none !important;
+            box-shadow: none !important;
         }
+
+        .project-page-body :focus-visible {
+            /* visible ring for keyboard/assistive users */
+            outline: 3px solid rgba(var(--accent), 0.18);
+            outline-offset: 4px;
+            border-radius: 0.5rem;
+        }
+
+        /* Hide any accidental outlines on .glass-effect containers */
+        .project-page-body .glass-effect,
+        .project-page-body .glass-effect:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+/* prevent headline text from overflowing its container */
+.project-page-body .headline {
+    /* make headline responsive and avoid oversized text on narrow viewports */
+    font-size: clamp(1.75rem, 5vw, 3rem);
+    line-height: 1.02;
+    max-width: 100%;
+    white-space: normal;         /* allow wrapping */
+    overflow-wrap: anywhere;    /* break long words if needed */
+    word-break: break-word;     /* safe fallback for older browsers */
+    hyphens: auto;              /* allow hyphenation where supported */
+}
+
+/* ensure panels clip any accidental visual overflow */
+.project-page-body .glass-effect {
+    overflow: hidden;
+}
