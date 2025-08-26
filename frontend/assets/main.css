@@ -25,7 +25,9 @@ html, body {
     transition: background-color 350ms var(--apple-ease), box-shadow 350ms var(--apple-ease), transform 350ms var(--apple-ease);
 }
 
-/* Typographic scale inspired by Apple's product pages */
+/* Typographic scale inspired by Apple's product pages
+   Shared font-family declarations are kept consistent; color rules
+   remain where they differ between headings and body copy. */
 h1, .headline {
     font-family: "SF Pro Display", var(--font-sans);
     font-weight: 700;
@@ -35,10 +37,10 @@ h1, .headline {
     -webkit-font-smoothing: antialiased;
 }
 
-/* hero subtitle override */
+/* hero subtitle override (scoped) */
 .animated-bg .hero-subtitle {
-    color: rgb(255,255,255) !important;     /* near-black */
-    opacity: 0.95;                       /* keep slight translucency */
+    color: rgb(255,255,255) !important;
+    opacity: 0.95;
 }
 
 h2 {
@@ -71,12 +73,12 @@ p, li, .body-text {
     color: rgb(255,255,255);
 }
 
-/* Softer hero background */
+/* Softer hero background + image */
 .animated-bg {
     background: radial-gradient(1200px 600px at 10% 20%, rgba(88,101,242,0.12), transparent 8%),
                 radial-gradient(900px 400px at 90% 80%, rgba(99,102,241,0.08), transparent 8%),
                 linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02)),
-                url("JPEG/Hero.jpg");
+                url("hero_image/Hero.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -84,7 +86,7 @@ p, li, .body-text {
     overflow: hidden;
 }
 
-/* Overlay to improve text contrast on the hero image */
+/* Overlay to improve text contrast on the hero image (scoped) */
 .animated-bg::before{
     content: "";
     position: absolute;
@@ -94,14 +96,12 @@ p, li, .body-text {
     z-index: 0;
 }
 
-/* Ensure hero content sits above the overlay */
+/* Ensure hero content sits above the overlay and tighten spacing */
 .animated-bg > .text-center { position: relative; z-index: 2; }
-
-/* tighten hero spacing and responsive type */
 .animated-bg .headline { margin-bottom: 0.5rem; font-size: clamp(2.25rem, 6vw, 3.75rem); }
 .animated-bg .hero-subtitle { margin-top: 0.25rem; font-size: clamp(1rem, 2.5vw, 1.5rem); }
 
-/* stronger accessible focus for CTAs inside hero */
+/* Stronger accessible focus for CTAs inside hero */
 .animated-bg a:focus { outline: 3px solid rgba(88,101,242,0.16); outline-offset: 4px; }
 
 /* Subtle floating motion for hero title */
@@ -109,36 +109,33 @@ p, li, .body-text {
     animation: floating 6s var(--apple-ease) infinite;
     will-change: transform;
 }
-
 @keyframes floating {
     0% { transform: translateY(0) translateZ(0); }
     50% { transform: translateY(-6px) translateZ(0); }
     100% { transform: translateY(0) translateZ(0); }
 }
 
-/* Apple-like transition defaults */
+/* Apple-like transition defaults (scoped to helper class) */
 .apple-transition {
     transition: transform 420ms var(--apple-ease), box-shadow 420ms var(--apple-ease), opacity 280ms ease;
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Project card interaction */
+/* Project card interaction (fixed translateZ) */
 .project-card {
-    transform: translateZ();
+    transform: translateZ(0);
     transition: transform 420ms var(--apple-ease), box-shadow 420ms var(--apple-ease), opacity 280ms ease;
     will-change: transform, box-shadow;
 }
-
 .project-card:hover, .project-card:focus-within {
     transform: translateY(-8px) scale(1.01);
     box-shadow: 0 18px 40px rgba(3,8,20,0.6);
 }
 
-/* Links and buttons micro-interactions */
+/* Links and buttons micro-interactions (kept distinct from .apple-transition) */
 a, button {
     transition: transform 260ms var(--apple-ease), opacity 200ms ease;
 }
-
 a:active, button:active { transform: scale(0.995); }
 
 /* Scroll reveal uses the same easing for consistency */
@@ -148,25 +145,16 @@ a:active, button:active { transform: scale(0.995); }
     transition: transform 600ms var(--apple-ease), opacity 420ms ease;
     will-change: transform, opacity;
 }
-
 .scroll-reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Focus outlines that match macOS subtlety */
+/* Focus outlines */
 :focus {
     outline: 3px solid rgba(var(--accent), 0.12);
     outline-offset: 3px;
     border-radius: 8px;
-}
-
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: reduce) {
-    .floating, .animated-bg, .project-card, .scroll-reveal, .apple-transition {
-        animation: none !important;
-        transition: none !important;
-    }
 }
 
 /* Slide-in focus used when navigating via anchor links */
@@ -174,11 +162,36 @@ a:active, button:active { transform: scale(0.995); }
     from { transform: translateX(18px); opacity: 0.92; }
     to   { transform: translateX(0); opacity: 1; }
 }
-
 .slide-in-focus {
     animation: slideInFromRight 420ms var(--apple-ease) both;
 }
 
+/* Allow project tech tags to wrap and keep spacing tidy */
+.project-card .p-6 > .flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem; /* fallback spacing if gap not supported */
+}
+.project-card .p-6 > .flex > span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;   /* keep each badge on one line */
+    margin-bottom: .4rem;  /* create vertical rhythm when wrapping */
+}
+
+/* Slightly reduce badge padding on small screens to help fit */
+@media (max-width: 640px) {
+    .project-card .p-6 > .flex > span {
+        padding-left: .5rem;
+        padding-right: .5rem;
+        font-size: .8rem;
+    }
+}
+
+/* Respect reduced-motion preferences (consolidated) */
 @media (prefers-reduced-motion: reduce) {
-    .slide-in-focus { animation: none !important; }
+    .floating, .animated-bg, .project-card, .scroll-reveal, .apple-transition, .slide-in-focus {
+        animation: none !important;
+        transition: none !important;
+    }
 }

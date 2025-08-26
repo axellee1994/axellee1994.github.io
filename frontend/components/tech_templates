@@ -1,0 +1,35 @@
+<!-- Languages -->
+<span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Python</span>
+<span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">C</span>
+<span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">C++</span>
+<span class="px-3 py-1 bg-yellow-400/20 text-yellow-300 rounded-full text-sm">JavaScript</span>
+<span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">TypeScript</span>
+
+<!-- Libraries & Frameworks -->
+<span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">NumPy</span>
+<span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Pandas</span>
+<span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Scikit-learn</span>
+<span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">TensorFlow 2.0</span>
+<span class="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm">Keras</span>
+<span class="px-3 py-1 bg-blue-gray-500/20 text-blue-300 rounded-full text-sm">Matplotlib</span>
+<span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">Seaborn</span>
+<span class="px-3 py-1 bg-orange-400/20 text-orange-300 rounded-full text-sm">TensorFlow</span>
+<span class="px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-sm">PyTorch</span>
+<span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Node.js</span>
+<span class="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-sm">Babylon.js</span>
+<span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm">TailwindCSS</span>
+
+<!-- Development Tools & DevOps -->
+<span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Jupyter Notebooks</span>
+<span class="px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-sm">Google Colab</span>
+<span class="px-3 py-1 bg-green-600/20 text-green-300 rounded-full text-sm">Conda / Miniconda</span>
+<span class="px-3 py-1 bg-gray-800/20 text-gray-200 rounded-full text-sm">GitHub</span>
+<span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Docker</span>
+<span class="px-3 py-1 bg-stone-800/20 text-stone-200 rounded-full text-sm">Linux</span>
+
+<!-- Databases & Engineering -->
+<span class="px-3 py-1 bg-amber-600/20 text-amber-400 rounded-full text-sm">Apache Hadoop</span>
+<span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">Spark</span>
+<span class="px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-sm">Kafka</span>
+<span class="px-3 py-1 bg-teal-600/20 text-teal-300 rounded-full text-sm">Flink</span>
+<span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text
