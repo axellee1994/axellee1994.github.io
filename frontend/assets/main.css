@@ -142,7 +142,8 @@ a:active, button:active { transform: scale(0.995); }
 .scroll-reveal {
     opacity: 0;
     transform: translateY(18px);
-    transition: transform 600ms var(--apple-ease), opacity 420ms ease;
+    transition: transform 620ms cubic-bezier(0.2,0.9,0.2,1), opacity 520ms ease;
+    transition-delay: var(--delay, 0s); /* use --delay if provided on element */
     will-change: transform, opacity;
 }
 .scroll-reveal.visible {
@@ -190,8 +191,72 @@ a:active, button:active { transform: scale(0.995); }
 
 /* Respect reduced-motion preferences (consolidated) */
 @media (prefers-reduced-motion: reduce) {
-    .floating, .animated-bg, .project-card, .scroll-reveal, .apple-transition, .slide-in-focus {
+    .floating, .animated-bg, .project-card, .scroll-reveal, .apple-transition, .slide-in-focus, .hero-content {
         animation: none !important;
         transition: none !important;
     }
+}
+
+/* Apple-like refinements: hero entrance, headline scale/shadow, nav-on-scroll */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: transform 650ms cubic-bezier(0.2,0.9,0.2,1), opacity 650ms cubic-bezier(0.2,0.9,0.2,1);
+    will-change: transform, opacity;
+}
+
+/* when IntersectionObserver adds .visible (scroll-reveal) */
+.scroll-reveal.visible.hero-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* hero responsive image placed under existing .animated-bg gradients/overlay */
+.hero-bg-picture { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero-bg-picture img.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: contrast(0.98) saturate(1.02);
+}
+
+/* make sure hero content sits above overlay */
+.animated-bg > .hero-content,
+.animated-bg > .hero-content * { position: relative; z-index: 2; }
+
+/* crisper, larger headline similar to Apple */
+.animated-bg .headline {
+    font-size: clamp(2.75rem, 8vw, 5rem);
+    letter-spacing: -0.03em;
+    line-height: 0.96;
+    text-shadow: 0 10px 28px rgba(6,12,34,0.65);
+}
+
+/* stronger but subtle CTA focus for keyboard users */
+a:focus-visible, button:focus-visible {
+    outline: 3px solid rgba(88,101,242,0.18);
+    outline-offset: 4px;
+    border-radius: 10px;
+}
+
+/* accessible skip link visible on focus */
+.skip-link {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    padding: 8px 10px;
+    background: rgba(255,255,255,0.98);
+    color: #0b1220;
+    border-radius: 6px;
+    z-index: 9999;
+}
+.skip-link.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip-link:focus { position: fixed; width: auto; height: auto; margin: 8px; clip: auto; overflow: visible; }
+
+/* reduce heavy animate.css duplication for hero on low-power devices (respect pref) */
+@media (prefers-reduced-motion: reduce) {
+    .hero-content, .floating { animation: none !important; transition: none !important; }
 }

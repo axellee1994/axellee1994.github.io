@@ -10,8 +10,26 @@
     <link rel="preload" as="image" href="frontend/assets/JPEG/Hero.jpg">
 </head>
 <body class="bg-gray-900 text-gray-100">
+<a class="skip-link sr-only" href="#main">Skip to content</a>
+
+<!-- Hero Section -->
+<header id="hero" class="min-h-screen flex items-center justify-center animated-bg" role="banner" aria-labelledby="site-title">
+    <!-- responsive background image (keeps overlay / gradients from .animated-bg) -->
+    <picture class="hero-bg-picture" aria-hidden="true">
+        <source srcset="frontend/assets/JPEG/Hero-2400.jpg 2400w, frontend/assets/JPEG/Hero-1600.jpg 1600w, frontend/assets/JPEG/Hero-800.jpg 800w" sizes="100vw">
+        <img class="hero-bg-img" src="frontend/assets/JPEG/Hero.jpg" alt="" fetchpriority="high" decoding="async" />
+    </picture>
+
+    <div id="main" class="hero-content text-center px-4 animate__animated animate__fadeInUp scroll-reveal" style="--delay:0.2s">
+        <h1 id="site-title" class="hero-title headline text-6xl font-bold mb-3 floating" style="animation-delay:0.2s;">AXEL LEE</h1>
+        <p class="hero-subtitle text-2xl font-semibold mb-4 opacity-90" style="animation-delay:0.5s;">
+            Data Scientist | Graduate @ 42 Singapore | Software Engineer
+        </p>
+    </div>
+</header>
+
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-effect animate__animated animate__fadeInDown" role="navigation" aria-label="Main navigation">
+    <nav id="site-nav" class="fixed w-full z-50 glass-effect animate__animated animate__fadeInDown" role="navigation" aria-label="Main navigation">
         <div class="max-w-6xl mx-auto px-4 py-4 font-semibold">
             <div class="flex justify-between items-center">
                 <span class="brand animate__animated animate__fadeInLeft">AL</span>
@@ -23,16 +41,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Hero Section -->
-    <header class="min-h-screen flex items-center justify-center animated-bg">
-        <div class="text-center px-4 animate__animated animate__fadeInUp">
-            <h1 class="hero-title headline text-6xl font-bold mb-3 floating animate__animated animate__zoomIn" style="animation-delay:0.2s;">AXEL LEE</h1>
-            <p class="hero-subtitle text-2xl font-semibold mb-4 opacity-90 animate__animated animate__fadeInUp" style="animation-delay:0.5s;">
-                Data Scientist | Graduate @ 42 Singapore | Software Engineer
-            </p>
-        </div>
-    </header>
 
     <!-- About Section -->
     <section id="about" class="py-32 px-4 bg-gray-800">
@@ -141,58 +149,51 @@
     </footer>
 
     <script>
-        // Scroll reveal animation
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+    (function () {
+        // Respect reduced motion preference
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const reveals = Array.from(document.querySelectorAll('.scroll-reveal'));
 
-        const observer = new IntersectionObserver((entries) => {
+        if (prefersReduced) {
+            // reveal everything immediately
+            reveals.forEach(el => el.classList.add('visible'));
+            return;
+        }
+
+        const io = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                const el = entry.target;
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    // read CSS variable --delay (e.g. "--delay:0.2s") if present
+                    const computed = getComputedStyle(el);
+                    let delayRaw = computed.getPropertyValue('--delay') || '0s';
+                    delayRaw = delayRaw.trim();
+                    // parse seconds or milliseconds
+                    let delayMs = 0;
+                    if (delayRaw.endsWith('ms')) delayMs = parseFloat(delayRaw);
+                    else if (delayRaw.endsWith('s')) delayMs = parseFloat(delayRaw) * 1000;
+                    else delayMs = parseFloat(delayRaw) || 0;
+
+                    // apply visible with delay then unobserve
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                        io.unobserve(el);
+                    }, delayMs);
                 }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.scroll-reveal').forEach((element) => {
-            observer.observe(element);
+        }, {
+            root: null,
+            rootMargin: '0px 0px -10% 0px', // reveal slightly before element reaches bottom
+            threshold: 0.12
         });
 
-        // Smooth scroll with slide-in focus for internal anchor links
-        (function(){
-            const nav = document.querySelector('nav');
-            const links = document.querySelectorAll('a[href^="#"]');
-
-            function getTargetFromHref(href){
-                try{ const id = href.split('#')[1]; return id ? document.getElementById(id) : null; } catch(e){ return null; }
-            }
-
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if(!href || href === '#' ) return;
-
-                const target = getTargetFromHref(href);
-                if(!target) return;
-
-                link.addEventListener('click', (e) => {
-                    // allow modifier keys to open in new tab
-                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-                    e.preventDefault();
-
-                    const navHeight = nav ? nav.offsetHeight : 0;
-                    const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 12;
-
-                    window.scrollTo({ top, behavior: 'smooth' });
-
-                    // add temporary slide animation to the target for a smooth 'arrive' effect
-                    target.classList.add('slide-in-focus');
-                    // remove after animation finishes
-                    window.setTimeout(()=> target.classList.remove('slide-in-focus'), 700);
-                });
-            });
-        })();
+        // observe targets
+        reveals.forEach(el => {
+            // ensure element has a --delay fallback so transition-delay works for non-JS users too
+            if (!el.style.getPropertyValue('--delay')) el.style.setProperty('--delay', '0s');
+            io.observe(el);
+        });
+    })();
     </script>
 </body>
 </html>
