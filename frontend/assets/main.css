@@ -84,6 +84,26 @@ p, li, .body-text {
     overflow: hidden;
 }
 
+/* Overlay to improve text contrast on the hero image */
+.animated-bg::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.48));
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure hero content sits above the overlay */
+.animated-bg > .text-center { position: relative; z-index: 2; }
+
+/* tighten hero spacing and responsive type */
+.animated-bg .headline { margin-bottom: 0.5rem; font-size: clamp(2.25rem, 6vw, 3.75rem); }
+.animated-bg .hero-subtitle { margin-top: 0.25rem; font-size: clamp(1rem, 2.5vw, 1.5rem); }
+
+/* stronger accessible focus for CTAs inside hero */
+.animated-bg a:focus { outline: 3px solid rgba(88,101,242,0.16); outline-offset: 4px; }
+
 /* Subtle floating motion for hero title */
 .floating {
     animation: floating 6s var(--apple-ease) infinite;
@@ -104,7 +124,7 @@ p, li, .body-text {
 
 /* Project card interaction */
 .project-card {
-    transform: translateZ(0);
+    transform: translateZ();
     transition: transform 420ms var(--apple-ease), box-shadow 420ms var(--apple-ease), opacity 280ms ease;
     will-change: transform, box-shadow;
 }
