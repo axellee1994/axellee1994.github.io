@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Project 1 — Portfolio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/project_page.css">
 
@@ -28,15 +28,40 @@
     <main class="min-h-screen flex items-center justify-center animated-bg pt-32 pb-20 px-4">
         <div class="max-w-3xl w-full">
             <div class="glass-effect rounded-2xl p-8 mb-10 scroll-reveal">
-                <img src="/api/placeholder/800/400" alt="Project screenshot" class="w-full h-64 object-cover rounded-xl mb-8" />
-                <h1 class="headline text-4xl font-bold mb-4">Project 1</h1>
+                <video class="w-full h-120 object-cover rounded-xl mb-8"
+                    autoplay muted loop playsinline preload="metadata" poster="../assets/project_images/single_player-poster.jpg">
+                    <source src="../assets/project_images/single_player.webm" type="video/webm">
+                </video>
+                <h1 class="headline text-4xl font-bold mb-4">FT_TRANSCENDENCE</h1>
                 <h2 class="text-2xl font-semibold mb-2">Overview</h2>
-                <p class="mb-4">Short synopsis of Project 1. Explain what it does and the problem it solves.</p>
-                <h3 class="font-semibold mb-1">Tech</h3>
-                <div class="flex gap-2 mb-2">
-                    <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Vue.js</span>
-                    <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Firebase</span>
-                    <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Cloud Functions</span>
+                <p class="mb-4">42 Transcendence is a full-stack web application featuring a multiplayer Pong game, user authentication, real-time chat, and social features. The project is built with a Fastify backend (TypeScript) and a modern frontend using TypeScript and Tailwind CSS.</p>
+                <h3 class="font-semibold mb-1">Technologies Used</h3>
+                <div class="mb-2">
+                    <div class="mb-2">
+                        <span class="font-medium">Backend:</span>
+                        <div class="inline-flex flex-wrap gap-2 ml-2">
+                            <span class="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-sm">Fastify</span>
+                            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">TypeScript</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Node.js</span>
+                            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">SQLite</span>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Nodemailer</span>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <span class="font-medium">Frontend:</span>
+                        <div class="inline-flex flex-wrap gap-2 ml-2">
+                            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">TypeScript</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Webpack</span>
+                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-sm">Babylon.js</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="font-medium">DevOps:</span>
+                        <div class="inline-flex flex-wrap gap-2 ml-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Docker</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="glass-effect rounded-2xl p-8 scroll-reveal">
