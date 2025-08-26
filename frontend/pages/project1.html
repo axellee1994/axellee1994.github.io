@@ -30,7 +30,7 @@
             <div class="glass-effect rounded-2xl p-8 mb-10 scroll-reveal">
                 <video class="w-full h-120 object-cover rounded-xl mb-8"
                     autoplay muted loop playsinline preload="metadata" poster="../assets/project_images/single_player-poster.jpg">
-                    <source src="../assets/project_images/single_player.webm" type="video/webm">
+                    <source src="../assets/project_images/ft_transcendence/single_player.webm" type="video/webm">
                 </video>
                 <h1 class="headline text-4xl font-bold mb-4">FT_TRANSCENDENCE</h1>
                 <h2 class="text-2xl font-semibold mb-2">Overview</h2>
@@ -101,22 +101,28 @@
                 <div class="relative">
                     <div id="gif-carousel" class="overflow-hidden rounded-lg bg-gray-800">
                         <div class="carousel-track relative w-full h-64 md:h-80 lg:h-96">
-                            <img src="../assets/project_images/gif1.gif" alt="Gallery GIF 1" class="carousel-item absolute inset-0 w-full h-full object-cover" data-index="0" loading="lazy">
-                            <img src="../assets/project_images/gif2.gif" alt="Gallery GIF 2" class="carousel-item absolute inset-0 w-full h-full object-cover hidden" data-index="1" loading="lazy">
-                            <img src="../assets/project_images/gif3.gif" alt="Gallery GIF 3" class="carousel-item absolute inset-0 w-full h-full object-cover hidden" data-index="2" loading="lazy">
+                            <video class="carousel-item absolute inset-0 w-full h-full object-cover" data-index="0" autoplay muted loop playsinline preload="metadata" poster="../assets/project_images/ft_transcendence/multiplayer-poster.webp">
+                                <source src="../assets/project_images/ft_transcendence/multiplayer.webm" type="video/webm">
+                            </video>
+
+                            <video class="carousel-item absolute inset-0 w-full h-full object-cover hidden" data-index="1" autoplay muted loop playsinline preload="metadata" poster="../assets/project_images/ft_transcendence/profile-poster.webp">
+                                <source src="../assets/project_images/ft_transcendence/profile_detailed_stats.webm" type="video/webm">
+                            </video>
+
+                            <video class="carousel-item absolute inset-0 w-full h-full object-cover hidden" data-index="2" autoplay muted loop playsinline preload="metadata" poster="../assets/project_images/ft_transcendence/other-poster.webp">
+                                <source src="../assets/project_images/ft_transcendence/friends.webm" type="video/webm">
+                            </video>
                         </div>
                     </div>
 
-                    <!-- controls -->
-                    <button id="carousel-prev" aria-label="Previous" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <button id="carousel-prev" type="button" aria-label="Previous" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
                         ‹
                     </button>
-                    <button id="carousel-next" aria-label="Next" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <button id="carousel-next" type="button" aria-label="Next" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
                         ›
                     </button>
                 </div>
 
-                <!-- indicators -->
                 <div id="carousel-dots" class="flex justify-center mt-3 space-x-2">
                     <button class="dot w-3 h-3 rounded-full bg-blue-300" data-index="0" aria-label="Show image 1"></button>
                     <button class="dot w-3 h-3 rounded-full bg-gray-600" data-index="1" aria-label="Show image 2"></button>
@@ -135,7 +141,15 @@
                     function show(i){
                         idx = (i + items.length) % items.length;
                         items.forEach((el, j) => {
-                            el.classList.toggle('hidden', j !== idx);
+                            const hidden = j !== idx;
+                            el.classList.toggle('hidden', hidden);
+                            // pause hidden videos and play visible one
+                            if (el.tagName.toLowerCase() === 'video') {
+                                try {
+                                    if (hidden) { el.pause(); el.currentTime = 0; }
+                                    else { el.play().catch(()=>{}); }
+                                } catch(e){}
+                            }
                         });
                         dots.forEach((d, j) => {
                             d.classList.toggle('bg-blue-300', j === idx);
@@ -145,15 +159,14 @@
 
                     prev.addEventListener('click', () => show(idx - 1));
                     next.addEventListener('click', () => show(idx + 1));
-                    dots.forEach(d => d.addEventListener('click', (e) => show(Number(d.dataset.index))));
+                    dots.forEach(d => d.addEventListener('click', () => show(Number(d.dataset.index))));
 
-                    // keyboard support
                     document.addEventListener('keydown', (e) => {
                         if (e.key === 'ArrowLeft') show(idx - 1);
                         if (e.key === 'ArrowRight') show(idx + 1);
                     });
 
-                    // initialize
+                    // initialize: ensure only the first plays
                     show(0);
                 })();
             </script>
