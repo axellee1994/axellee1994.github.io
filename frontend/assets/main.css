@@ -1,19 +1,18 @@
 :root{
-    --bg: 15 15 20; /* used with rgb/rgba for better contrast control */
-    --glass-bg: 255 255 255;
-    --accent: 88 101 242; /* soft bluish accent */
-    --card-shadow: 0 10px 30px rgba(12, 18, 30, 0.6);
-    --apple-ease: cubic-bezier(0.2, 1, 0.2, 1);
-    --font-sans: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", system-ui, sans-serif;
+    /* base palette (rgb triplets so you can use rgb(var(--name)) / rgba(var(--name), a) */
+    --bg: 15 15 20;         /* page base (very dark) */
+    --surface: 24 27 31;    /* section surface (slightly lighter) */
+    --surface-2: 18 20 25;  /* alternating section surface */
+    --footer: 8 10 12;      /* footer / deepest surface */
+    --muted: 120 129 144;   /* muted copy */
+    --accent: 88 101 242;   /* bluish accent (keeps existing) */
+    --text-on-dark: 245 246 250; /* main copy (near-white) */
 }
 
-/* Global font + smoothing */
+/* ensure body uses variable colors */
 html, body {
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     background-color: rgb(var(--bg));
-    color: rgb(00,233,238);
+    color: rgb(var(--text-on-dark));
 }
 
 /* Glass surface used across UI */
@@ -87,11 +86,11 @@ p, li, .body-text {
 }
 
 /* Overlay to improve text contrast on the hero image (scoped) */
-.animated-bg::before{
+.animated-bg::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.48));
+    background: linear-gradient(180deg, rgba(3,6,20,0.44), rgba(0,0,0,0.56));
     pointer-events: none;
     z-index: 0;
 }
@@ -260,3 +259,32 @@ a:focus-visible, button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
     .hero-content, .floating { animation: none !important; transition: none !important; }
 }
+
+/* section backgrounds — subtle alternating surfaces for depth */
+#about,
+#contact {
+    background-color: rgb(var(--surface));
+}
+#projects,
+.main-section--alt {
+    background-color: rgb(var(--surface-2));
+}
+
+/* footer */
+footer {
+    background-color: rgb(var(--footer));
+    color: rgba(245,246,250,0.72);
+}
+
+/* subtle separators like Apple */
+section { border-top: 1px solid rgba(255,255,255,0.03); }
+
+/* keep CTAs bright and consistent */
+a.glass-effect, .hero-cta {
+    color: rgb(var(--text-on-dark));
+    /* use accent for fills/gradients where needed */
+    --cta-accent: rgb(var(--accent));
+}
+
+/* muted paragraph color when needed */
+.p-muted { color: rgb(var(--muted)); }
