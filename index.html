@@ -14,15 +14,20 @@
 
 <!-- Hero Section -->
 <header id="hero" class="min-h-screen flex items-center justify-center animated-bg relative" role="banner" aria-labelledby="site-title">
+    <!-- Hero Image -->
+    <img src="frontend/assets/hero_image/Hero.webp" alt="" class="hero-bg-picture w-full h-full object-cover absolute inset-0 z-0" aria-hidden="true" loading="eager" fetchpriority="high">
+    
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-gray-900/80 z-10 pointer-events-none"></div>
+    
+    <!-- Hero Content -->
     <div id="main" class="hero-content text-center px-4 animate__animated animate__fadeInUp scroll-reveal relative z-20" style="--delay:0.2s">
         <h1 id="site-title" class="hero-title headline text-6xl font-bold mb-3 floating" style="animation-delay:0.2s;">AXEL LEE</h1>
         <p class="hero-subtitle text-2xl font-semibold mb-4 opacity-100" style="animation-delay:0.5s;">
             Data Scientist | Graduate @ 42 Singapore | Software Engineer
         </p>
     </div>
-        <img src="frontend/assets/hero_image/Hero.webp" alt="" class="hero-bg-picture w-full h-full object-cover absolute inset-0 z-0" aria-hidden="true" loading="eager" fetchpriority="high">
-        <div class="absolute inset-0 bg-gray-900/80 z-10 pointer-events-none"></div>
-    </header>
+</header>
 
     <!-- Navigation -->
     <nav id="site-nav" class="fixed w-full z-50 glass-effect animate__animated animate__fadeInDown" role="navigation" aria-label="Main navigation">
