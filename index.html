@@ -7,19 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link rel="stylesheet" href="frontend/assets/main.css">
-    <link rel="preload" as="image" href="frontend/assets/JPEG/Hero-2400.jpg" imagesrcset="frontend/assets/JPEG/Hero-2400.jpg 2400w, frontend/assets/JPEG/Hero-1600.jpg 1600w, frontend/assets/JPEG/Hero-800.jpg 800w" imagesizes="100vw">
+    <link rel="preload" as="image" href="frontend/assets/hero_image/Hero.webp">
 </head>
 <body class="bg-gray-900 text-gray-100">
 <a class="skip-link sr-only" href="#main">Skip to content</a>
 
 <!-- Hero Section -->
 <header id="hero" class="min-h-screen flex items-center justify-center animated-bg" role="banner" aria-labelledby="site-title">
-    <!-- responsive background image (keeps overlay / gradients from .animated-bg) -->
-    <picture class="hero-bg-picture" aria-hidden="true">
-        <!-- Modern formats first (add AVIF/WEBP files to take advantage) -->
-        <source type="image/avif" srcset="frontend/assets/AVIF/Hero-2400.avif 2400w, frontend/assets/AVIF/Hero-1600.avif 1600w, frontend/assets/AVIF/Hero-800.avif 800w" sizes="100vw">
-        <source type="image/webp" srcset="frontend/assets/WEBP/Hero-2400.webp 2400w, frontend/assets/WEBP/Hero-1600.webp 1600w, frontend/assets/WEBP/Hero-800.webp 800w" sizes="100vw">
-    </picture>
+    <img src="frontend/assets/hero_image/Hero.webp" alt="" class="hero-bg-picture" aria-hidden="true">
 
     <div id="main" class="hero-content text-center px-4 animate__animated animate__fadeInUp scroll-reveal" style="--delay:0.2s">
         <h1 id="site-title" class="hero-title headline text-6xl font-bold mb-3 floating" style="animation-delay:0.2s;">AXEL LEE</h1>
