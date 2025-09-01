@@ -297,3 +297,12 @@ a.glass-effect, .hero-cta {
 
 /* muted paragraph color when needed */
 .p-muted { color: rgb(var(--muted)); }
+
+/* Ensure hero CTA buttons share the same minimum width and alignment */
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 12rem; /* tweak to match visual length you prefer */
+    white-space: nowrap;
+}
