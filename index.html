@@ -13,12 +13,22 @@
 <a class="skip-link sr-only" href="#main">Skip to content</a>
 
 <!-- Hero Section -->
-<header id="hero" class="min-h-screen flex items-center justify-center animated-bg relative" role="banner" aria-labelledby="site-title"
-        style="background-image: linear-gradient(rgba(17,24,39,0.65), rgba(17,24,39,0.65)), url('frontend/assets/hero_image/Hero.webp'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <!-- Hero Content -->
+<header id="hero" class="min-h-screen flex items-center justify-center animated-bg relative" role="banner" aria-labelledby="site-title">
+    <!-- Hero Image (loads with high priority) -->
+    <img src="frontend/assets/hero_image/Hero.webp"
+         alt=""
+         class="absolute inset-0 w-full h-full object-cover z-0"
+         aria-hidden="true"
+         loading="eager"
+         fetchpriority="high">
+
+    <!-- Slight overlay that only affects the image -->
+    <div class="absolute inset-0 bg-black/30 z-10 pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Hero Content (solid white text above image) -->
     <div id="main" class="hero-content text-center px-4 animate__animated animate__fadeInUp scroll-reveal relative z-20" style="--delay:0.2s">
-        <h1 id="site-title" class="hero-title headline text-6xl font-bold mb-3 floating" style="animation-delay:0.2s;">AXEL LEE</h1>
-        <p class="hero-subtitle text-2xl font-semibold mb-4 opacity-100" style="animation-delay:0.5s;">
+        <h1 id="site-title" class="hero-title headline text-6xl font-bold mb-3 floating text-white" style="animation-delay:0.2s;">AXEL LEE</h1>
+        <p class="hero-subtitle text-2xl font-semibold mb-4 text-white" style="animation-delay:0.5s;">
             Data Scientist | Graduate @ 42 Singapore | Software Engineer
         </p>
     </div>
