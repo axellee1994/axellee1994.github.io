@@ -127,17 +127,17 @@
             </div>
 
             <!-- Gallery -->
-            <div class="glass-effect rounded-2xl p-8 mt-6 scroll-reveal">
+            <div class="glass-effect rounded-2xl p-8 mt-6 scroll-reveal w-full max-w-2xl mx-auto">
                 <h2 class="text-2xl font-semibold mb-4">Gallery</h2>
                 <div class="relative">
                     <div id="gif-carousel" class="overflow-hidden rounded-lg bg-gray-800">
-                        <div class="carousel-track relative w-full h-64 md:h-80 lg:h-96">
-                            <img class="carousel-item absolute inset-0 w-full h-full object-cover" data-index="0"
-                            src="../assets/project_images/woof_woof/epoch_accuracy.webp" alt=" epoch_accuracy" loading="lazy">
-                            <img class="carousel-item absolute inset-0 w-full h-full object-cover hidden" data-index="1"
-                            src="../assets/project_images/woof_woof/tuning.webp" alt="tuning" loading="lazy">
-                            <img class="carousel-item absolute inset-0 w-full h-full object-cover hidden" data-index="2"
-                            src="../assets/project_images/woof_woof/amount_of_dogs.webp" alt="amount_of_dogs" loading="lazy">
+                        <div class="carousel-track relative w-full min-h-40 flex items-center justify-center" style="height:auto; min-height:10rem;">
+                            <img class="carousel-item absolute inset-0 max-h-96 w-auto max-w-full mx-auto my-auto object-contain bg-black" data-index="0"
+                            src="../assets/project_images/woof_woof/epoch_accuracy.webp" alt="Epoch Accuracy" loading="lazy">
+                            <img class="carousel-item absolute inset-0 max-h-96 w-auto max-w-full mx-auto my-auto object-contain bg-black hidden" data-index="1"
+                            src="../assets/project_images/woof_woof/testing.webp" alt="Testing" loading="lazy">
+                            <img class="carousel-item absolute inset-0 max-h-96 w-auto max-w-full mx-auto my-auto object-contain bg-black hidden" data-index="2"
+                            src="../assets/project_images/woof_woof/tuning.webp" alt="Tuning" loading="lazy">
                         </div>
                     </div>
 
@@ -168,13 +168,6 @@
                         items.forEach((el, j) => {
                             const hidden = j !== idx;
                             el.classList.toggle('hidden', hidden);
-                            // pause hidden videos and play visible one
-                            if (el.tagName.toLowerCase() === 'video') {
-                                try {
-                                    if (hidden) { el.pause(); el.currentTime = 0; }
-                                    else { el.play().catch(()=>{}); }
-                                } catch(e){}
-                            }
                         });
                         dots.forEach((d, j) => {
                             d.classList.toggle('bg-blue-300', j === idx);
@@ -186,12 +179,13 @@
                     next.addEventListener('click', () => show(idx + 1));
                     dots.forEach(d => d.addEventListener('click', () => show(Number(d.dataset.index))));
 
-                    document.addEventListener('keydown', (e) => {
-                        if (e.key === 'ArrowLeft') show(idx - 1);
-                        if (e.key === 'ArrowRight') show(idx + 1);
+                    // Use window for more reliable key events
+                    window.addEventListener('keydown', (e) => {
+                        if (e.key === 'ArrowLeft') { e.preventDefault(); show(idx - 1); }
+                        if (e.key === 'ArrowRight') { e.preventDefault(); show(idx + 1); }
                     });
 
-                    // initialize: ensure only the first plays
+                    // initialize: ensure only the first is visible
                     show(0);
                 })();
             </script>
