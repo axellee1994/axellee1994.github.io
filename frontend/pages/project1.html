@@ -163,9 +163,10 @@
                     next.addEventListener('click', () => show(idx + 1));
                     dots.forEach(d => d.addEventListener('click', () => show(Number(d.dataset.index))));
 
-                    document.addEventListener('keydown', (e) => {
-                        if (e.key === 'ArrowLeft') show(idx - 1);
-                        if (e.key === 'ArrowRight') show(idx + 1);
+                    // Use window for more reliable key events
+                    window.addEventListener('keydown', (e) => {
+                        if (e.key === 'ArrowLeft') { e.preventDefault(); show(idx - 1); }
+                        if (e.key === 'ArrowRight') { e.preventDefault(); show(idx + 1); }
                     });
 
                     // initialize: ensure only the first plays
