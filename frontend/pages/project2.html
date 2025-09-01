@@ -68,7 +68,7 @@
                     </div>
 
                     <div class="mb-2 flex items-start gap-4">
-                        <div class="font-medium w-28 flex-shrink-0">Modeling:</div>
+                        <div class="font-medium w-28 flex-shrink-0">Model:</div>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-rose-500/20 text-rose-300 rounded-full text-sm">MobileNet_V2_130_224</span>
                         </div>
@@ -85,7 +85,7 @@
                     <div class="flex items-start gap-4">
                         <div class="font-medium w-28 flex-shrink-0">Tools:</div>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-600/20 text-gray-200 rounded-full text-sm">Jupyter Notebooks</span>
+                            <span class="px-3 py-1 bg-orange-600/20 text-orange-300 rounded-full text-sm">Google Colab</span>
                             <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">SciPy</span>
                             <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Docker</span>
                             <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">GitHub</span>
@@ -93,27 +93,29 @@
                     </div>
                 </div>
             </div>
-            <div class="glass-effect rounded-2xl p-8 scroll-reveal">
-                <h2 class="text-2xl font-semibold mb-4">Result Summary</h2>
-                <ul class="list-inside list-disc space-y-2 text-gray-300">
-                    <li><strong>Best Model:</strong> Tuned Random Forest Classifier</li>
-                    <li><strong>Test Accuracy:</strong> 0.74–0.78; ROC‑AUC ≈ 0.861</li>
-                    <li><strong>Recall Score:</strong> High recall on positives (~94%) with more false positives; 95% accuracy target not met</li>
-                    <li><strong>Primary Signal: </strong> Derive from stress‑test/chest‑pain features (cp, thal, thalach, oldpeak, slope, exang, ca)</li>
-                </ul>
-            </div>
+                <div class="glass-effect rounded-2xl p-8 scroll-reveal">
+                    <h2 class="text-2xl font-semibold mb-4">Result Summary</h2>
+                    <ul class="list-inside list-disc space-y-2 text-gray-300">
+                        <li><strong>Best Model:</strong> Transfer learning with MobileNetV2 (TensorFlow Hub)</li>
+                        <li><strong>Validation Accuracy:</strong> Achieved up to ~65% on a subset (1000 images); higher accuracy possible with full dataset</li>
+                        <li><strong>Overfitting Observed:</strong> High training accuracy, lower validation accuracy—especially on small sample sizes</li>
+                        <li><strong>Primary Features:</strong> Model learns directly from image pixels; no manual feature engineering required</li>
+                        <li><strong>Submission:</strong> Predictions formatted for Kaggle submission with probability columns for each breed</li>
+                    </ul>
+                </div>
 
-            <div class="glass-effect rounded-2xl p-8 scroll-reveal">
-                <h2 class="text-2xl font-semibold mb-4">What I learnt</h2>
-                <ul class="list-inside list-disc space-y-2 text-gray-300">
-                    <li><strong>Exploratory Data Analysis:</strong> Cleaning model by replacing null values or dropping duplicates before using crosstabs and heatmaps</li>
-                    <li><strong>Stratified Data Splitting:</strong> How to determine the split percentages and to use train_test_split</li>
-                    <li><strong>Comparison among models:</strong> Learning how to tune with different models before doing a final tune with GridSearchCV</li>
-                    <li><strong>Pipeline:</strong> Implementing a pipeline to repeat scaling and preprocessing</li>
-                    <li><strong>Evaluation beyong accuracy:</strong> Cross validation with multiple scorers, ROC curve, ROC-AUC and Confusion Matrix</li>
-                    <li><strong>Feature Importance:</strong> Using .feature_importances_ to see which features affects the tuning most.</li>
-                    <li><strong>Model Export:</strong> Importing joblib and export a tuned model for future use</li>
-
+                <div class="glass-effect rounded-2xl p-8 scroll-reveal">
+                    <h2 class="text-2xl font-semibold mb-4">What I Learnt</h2>
+                    <ul class="list-inside list-disc space-y-2 text-gray-300">
+                        <li><strong>Data Preparation:</strong> How to preprocess image data, handle labels, and create efficient data pipelines with TensorFlow</li>
+                        <li><strong>Validation Strategy:</strong> Creating a custom validation set when one is not provided</li>
+                        <li><strong>Model Building:</strong> Using transfer learning and TensorFlow Hub for image classification</li>
+                        <li><strong>Batching & Performance:</strong> Leveraging tf.data for batching and shuffling to speed up training</li>
+                        <li><strong>Evaluation:</strong> Visualizing predictions, using accuracy and confusion matrix, and understanding model confidence</li>
+                        <li><strong>Overfitting & Callbacks:</strong> Applying early stopping and TensorBoard for monitoring and preventing overfitting</li>
+                        <li><strong>Model Export:</strong> Saving and reloading models for future inference and reproducibility</li>
+                    </ul>
+                </div>
                 </ul>
             </div>
 
