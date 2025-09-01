@@ -72,12 +72,13 @@ p, li, .body-text {
     color: rgb(255,255,255);
 }
 
-/* Softer hero background + image */
+/* Softer hero background + image
+   removed the CSS background-image so we only use the <img> in the DOM.
+   This prevents duplicate layers that can dim content unexpectedly. */
 .animated-bg {
     background: radial-gradient(1200px 600px at 10% 20%, rgba(88,101,242,0.12), transparent 8%),
                 radial-gradient(900px 400px at 90% 80%, rgba(99,102,241,0.08), transparent 8%),
-                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02)),
-                url("hero_image/Hero.jpg");
+                linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -85,14 +86,32 @@ p, li, .body-text {
     overflow: hidden;
 }
 
-/* Overlay to improve text contrast on the hero image (scoped) */
+/* disable the pseudo-element overlay so the DOM overlay div is authoritative */
 .animated-bg::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(3,6,20,0.44), rgba(0,0,0,0.56));
+    background: none; /* keep none so only the inline overlay div darkens the image */
     pointer-events: none;
     z-index: 0;
+}
+
+/* ensure the image sits under the overlay and content */
+.hero-bg-picture { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero-bg-picture img.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: contrast(0.98) saturate(1.02);
+}
+
+/* force hero content to be on top of everything (overlay is z-10) */
+.hero-content,
+.animated-bg > .hero-content,
+.animated-bg > .hero-content * {
+    position: relative;
+    z-index: 40 !important;
 }
 
 /* Ensure hero content sits above the overlay and tighten spacing */
@@ -210,16 +229,6 @@ a:active, button:active { transform: scale(0.995); }
 .scroll-reveal.visible.hero-content {
     transform: translateY(0);
     opacity: 1;
-}
-
-/* hero responsive image placed under existing .animated-bg gradients/overlay */
-.hero-bg-picture { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-.hero-bg-picture img.hero-bg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: contrast(0.98) saturate(1.02);
 }
 
 /* make sure hero content sits above overlay */
